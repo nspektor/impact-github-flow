@@ -2,17 +2,28 @@ const greetingEl = document.getElementById("greeting")
 const astrosEl = document.getElementById("astros")
 
 window.onload = () => {
+  alert("hi")
   greetingEl.innerText = "oh, hey there!"
-  renderAstros()
+  //renderAstros()
+  makeListOfAstronauts()
 }
 
 renderAstros = () => {
-  const astros = peopleInSpace["people"]
-  let peopleEls = astros.map((a) => {
-    let name = a["name"]
+  const astros = peopleInSpace.people
+  let peopleEls = astros.map((person) => {
+    let name = person.name
     return `<li>${name}</li>`
   })
-  astrosEl.innerHTML = `<ul>${peopleEls.join("")}</ul>`
+  astrosEl.innerHTML = `${peopleEls.join("")}`
+}
+
+let makeListOfAstronauts = () => {
+  astronauts = peopleInSpace.people.map((person) => {
+    return "<li> " + person.name + " </li>"
+  })
+  astroString = astronauts.join("")
+  astrosEl.innerHTML = astroString
+
 }
 
  // create a function that alerts "these are all the astronauts!" when the title element is clicked.
